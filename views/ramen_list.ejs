@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新小岩ラーメン　口コミ表</title>
+</head>
+<body>
+    <h1>新小岩ラーメン　口コミ表</h1>
+
+    <section>
+        <h2>新規データ登録</h2>
+        <form action="/ramen/add" method="POST">
+            <input type="text" name="shop" placeholder="店名" required>
+            <input type="text" name="product" placeholder="商品名" required>
+            <input type="number" name="price" placeholder="価格(円)">
+            <input type="number" name="rating" placeholder="評価(1-5)" min="1" max="5" required>
+            <input type="text" name="comment" placeholder="コメント">
+            <button type="submit">登録</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>記録一覧</h2>
+        <table border="1" cellpadding="5">
+            <tr style="background-color: #eee;">
+                <th>店名</th>
+                <th>商品名</th>
+                <th>評価</th>
+                <th>操作</th>
+            </tr>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.shop %></td>
+                    <td><%= item.product %></td>
+                    <td> <% let r = parseInt(item.rating) || 0; %>
+                        <span> <%= "★".repeat(r) %><%= "☆".repeat(5 - r) %>
+                        </span>
+                        (<%= r %>)
+                    </td>
+                    <td>
+                        <a href="/ramen/<%= item.id %>">詳細</a> | 
+                        <a href="/ramen/edit/<%= item.id %>">編集</a> | 
+                        <a href="/ramen/delete/<%= item.id %>">削除</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title><%= item.shop %> の詳細</title>
+</head>
+<body>
+    <h1><%= item.shop %> の詳細データ</h1>
+    <ul>
+        <li>商品名: <%= item.product %></li>
+        <li>価格: <%= item.price %> 円</li>
+        <li>評価: <% let stars = parseInt(item.rating) || 0; %>
+            <%= "★".repeat(stars) %><%= "☆".repeat(5 - stars) %> (<%= stars %>)
+        </li>
+        <li>備考: <%= item.comment %></li>
+    </ul>
+    <p><a href="/">一覧に戻る</a></p>
+</body>
+</html>

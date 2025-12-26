@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>編集: <%= item.shop %></title>
+</head>
+<body>
+    <h1>データの編集</h1>
+    <form action="/ramen/update/<%= item.id %>" method="POST">
+        <p>店名: <input type="text" name="shop" value="<%= item.shop %>" required></p>
+        <p>商品名: <input type="text" name="product" value="<%= item.product %>" required></p>
+        <p>価格: <input type="number" name="price" value="<%= item.price %>"></p>
+        <p>評価(1-5): <input type="number" name="rating" value="<%= item.rating %>" min="1" max="5" required></p>
+        <p>備考: <input type="text" name="comment" value="<%= item.comment %>"></p>
+        <button type="submit">更新保存</button>
+    </form>
+    <p><a href="/">キャンセル</a></p>
+</body>
+</html>
