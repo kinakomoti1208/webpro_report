@@ -11,8 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // データ管理用の変数（本来はDBだが、今回は変数に記録）
 let ramenList = [
-    { id: 1, shop: "麺屋 一燈", product: "特製濃厚魚介つけ麺", price: 1100, rating: 5, comment: "濃厚なスープが最高。" },
-    { id: 2, shop: "ラーメン 燈郎", product: "らーめん（豚のせ）", price: 950, rating: 4, comment: "野菜たっぷりで食べ応えあり。" }
+    { id: 1, shop: "Hi-Fat Noodle BUTCHER’S", product: "二郎インスパイアラーメン", price: 900, rating: 5, comment: "乳化スープと小麦感のある麺が最高" },
+    { id: 2, shop: "燈郎", product: "二郎系ラーメン？", price: 950, rating: 4, comment: "野菜たっぷりで食べ応えあり。ステーキも素敵" },
+    { id: 3, shop: "麺屋 一燈", product: "濃厚魚介つけ麺", price: 1200, rating: 4.5, comment: "つけ麺食べるならここ一択。でも高め" },
+    { id: 4, shop: "元祖油堂", product: "油そば", price: 880, rating: 4, comment: "飲み放題の烏龍茶とベストマッチ。最初の一口でクライマックス" },
+    { id: 5, shop: "中華そば専門 邦ちゃん", product: "中華そば", price: 790, rating: 4, comment: "安く腹一杯になりたいならここ。値段のくせにチャーシュー多め。ついでにお米食べ放題" },
 ];
 // 一覧表示
 app.get("/", (req, res) => {
