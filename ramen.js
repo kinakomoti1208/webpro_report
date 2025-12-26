@@ -18,7 +18,7 @@ let ramenList = [
     { id: 5, shop: "中華そば専門 邦ちゃん", product: "中華そば", price: 790, rating: 4, comment: "安く腹一杯になりたいならここ。値段のくせにチャーシュー多め。ついでにお米食べ放題" },
 ];
 // 一覧表示
-app.get("/", (req, res) => {
+app.get("/ramen", (req, res) => {
     res.render("ramen_list", { data: ramenList });
 });
 
@@ -44,7 +44,7 @@ app.post("/ramen/add", (req, res) => {
         comment: req.body.comment
     };
     ramenList.push(newItem);
-    res.redirect("/"); 
+    res.redirect("/ramen");
 });
 
 //編集//
@@ -71,13 +71,13 @@ app.post("/ramen/update/:id", (req, res) => {
             comment: req.body.comment
         };
     }
-    res.redirect("/");
+    res.redirect("/ramen");
 });
 
 //削除//
 app.get("/ramen/delete/:id", (req, res) => {
     ramenList = ramenList.filter(r => r.id !== parseInt(req.params.id));
-    res.redirect("/");
+    res.redirect("/ramen");
 });
 
 app.listen(8080, () => console.log("Server running on http://localhost:8080"));
