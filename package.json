@@ -1,0 +1,25 @@
+{
+  "name": "http-server",
+  "version": "1.0.0",
+  "description": "Node.js example server starter project",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node app4.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.22.1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudahiroshi/webpro_06.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sudahiroshi/webpro_06/issues"
+  },
+  "homepage": "https://github.com/sudahiroshi/webpro_06#readme"
+}
