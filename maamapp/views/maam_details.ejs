@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title><%= item.name %> の詳細</title>
+</head>
+<body>
+    <h1><%= item.name %> の詳細データ</h1>
+    <ul>
+        <li>年代: <%= item.name %></li>
+        <li>枚数: <%= item.count %> 枚</li>
+        <li>総重量: <%= item.weight %> g</li>
+        <li>価格: <%= item.price %> 円</li>
+        <li>1枚あたり: <%= item.count > 0 ? (item.weight / item.count).toFixed(2) : 0 %> g</li>
+        <li>備考: <%= item.comment %></li>
+    </ul>
+    <p><a href="/maam">一覧に戻る</a></p>
+</body>
+</html>

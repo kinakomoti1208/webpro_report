@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>カントリーマームの悲しい歴史</title>
+</head>
+<body>
+    <h1>カントリーマームの悲しい歴史</h1>
+
+    <section>
+        <h2>新規データ登録</h2>
+        <form action="/maam/add" method="POST">
+            <input type="text" name="name" placeholder="年代" required>
+            <input type="number" name="count" placeholder="枚数" required>
+            <input type="number" name="weight" placeholder="総重量(g)">
+            <input type="number" name="price" placeholder="価格(円)">
+            <input type="text" name="comment" placeholder="コメント">
+            <button type="submit">登録</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>記録一覧</h2>
+        <table border="1" cellpadding="5">
+            <tr style="background-color: #eee;">
+                <th>年代</th>
+                <th>枚数</th>
+                <th>総重量</th>
+                <th>1枚あたりの重さ</th>
+                <th>価格</th>
+                <th>操作</th>
+            </tr>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.count %> 枚</td>
+                    <td><%= item.weight %> g</td>
+                    <td>
+                        <%= item.count > 0 ? (item.weight / item.count).toFixed(2) : 0 %> g
+                    </td>
+                    <td><%= item.price %> 円</td>
+                    <td>
+                        <a href="/maam/<%= item.id %>">詳細</a> | 
+                        <a href="/maam/edit/<%= item.id %>">編集</a> | 
+                        <a href="/maam/delete/<%= item.id %>">削除</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    </section>
+</body>
+</html>
