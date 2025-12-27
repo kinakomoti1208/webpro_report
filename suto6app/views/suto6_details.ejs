@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>詳細: <%= item.name %></title>
+</head>
+<body>
+    <h1>技の詳細データ</h1>
+    <ul>
+        <li>技名: <%= item.name %></li>
+        <li>発生フレーム: <%= item.startup %></li>
+        <li>持続(duration): <%= item.duration %></li>
+        <li>硬直(stiffness): <%= item.stiffness %></li>
+        <li>ヒット時硬化差: <%= item.hit %></li>
+        <li>ガード時硬化差: <%= item.block %></li>
+        <li>ダメージ: <%= item.damage %></li>
+        <li>備考: <%= item.comment %></li>
+    </ul>
+    <p><a href="/cammy">一覧に戻る</a></p>
+</body>
+</html>

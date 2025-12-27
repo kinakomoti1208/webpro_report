@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>編集: <%= item.name %></title>
+</head>
+<body>
+    <h1>データの編集</h1>
+    <form action="/cammy/update/<%= item.id %>" method="POST">
+        <p>技名: <input type="text" name="name" value="<%= item.name %>" required></p>
+        <p>発生: <input type="number" name="startup" value="<%= item.startup %>"></p>
+        <p>持続(duration): <input type="text" name="duration" value="<%= item.duration %>"></p>
+        <p>硬直(stiffness): <input type="number" name="stiffness" value="<%= item.stiffness %>"></p>
+        <p>ヒット時: <input type="text" name="hit" value="<%= item.hit %>"></p>
+        <p>ガード時: <input type="number" name="block" value="<%= item.block %>"></p>
+        <p>ダメージ: <input type="number" name="damage" value="<%= item.damage %>"></p>
+        <p>備考: <input type="text" name="comment" value="<%= item.comment %>"></p>
+        <button type="submit">更新保存</button>
+    </form>
+    <p><a href="/cammy">キャンセル</a></p>
+</body>
+</html>

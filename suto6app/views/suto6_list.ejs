@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>キャミィ フレームデータ</title>
+    <style>
+        .safe { color: blue; font-weight: bold; }
+        .unsafe { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>キャミィ フレーム表 (SF6)</h1>
+
+    <section>
+        <h2>新規データ登録</h2>
+        <form action="/cammy/add" method="POST">
+            <input type="text" name="name" placeholder="技名" required>
+            <input type="number" name="startup" placeholder="発生">
+            <input type="text" name="duration" placeholder="持続">
+            <input type="number" name="stiffness" placeholder="硬直">
+            <input type="text" name="hit" placeholder="ヒット">
+            <input type="number" name="block" placeholder="ガード">
+            <input type="number" name="damage" placeholder="ダメージ">
+            <input type="text" name="comment" placeholder="備考">
+            <button type="submit">登録</button>
+        </form>
+    </section>
+    <hr>
+    <section>
+        <h2>技リスト</h2>
+        <table border="1" cellpadding="5">
+            <tr style="background-color: #eee;">
+                <th>技名</th>
+                <th>発生</th>
+                <th>持続</th>
+                <th>硬直</th>
+                <th>ヒット</th>
+                <th>ガード</th>
+                <th>ダメージ</th>
+                <th>操作</th>
+            </tr>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><strong><%= item.name %></strong></td>
+                    <td><%= item.startup %></td>
+                    <td><%= item.duration %></td>
+                    <td><%= item.stiffness %></td>
+                    <td>
+                        <% if (typeof item.hit === 'number') { %>
+                            <span class="<%= item.hit >= 0 ? 'safe' : 'unsafe' %>">
+                                <%= item.hit > 0 ? "+" + item.hit : item.hit %>
+                            </span>
+                        <% } else { %>
+                            <%= item.hit %>
+                        <% } %>
+                    </td>
+                    <td>
+                        <span class="<%= item.block >= 0 ? 'safe' : 'unsafe' %>">
+                            <%= item.block > 0 ? "+" + item.block : item.block %>
+                        </span>
+                    </td>
+                    <td><%= item.damage %></td>
+                    <td>
+                        <a href="/cammy/<%= item.id %>">詳細</a> | 
+                        <a href="/cammy/edit/<%= item.id %>">編集</a> | 
+                        <a href="/cammy/delete/<%= item.id %>">削除</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    </section>
+</body>
+</html>
